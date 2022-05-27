@@ -7,7 +7,7 @@ class SignInInitialState extends SignInStates {}
 class SignInLoadingState extends SignInStates {}
 
 class SignInSuccessState extends SignInStates {
-  final Welcome signInModel;
+  final UserModel signInModel;
 
   SignInSuccessState(this.signInModel);
 }

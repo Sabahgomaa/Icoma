@@ -2,13 +2,12 @@
 //
 //     final welcome = welcomeFromJson(jsonString);
 
-class UserModel {
-  UserModel({
+class Welcome {
+  Welcome({
     this.id,
     this.password,
     this.lastLogin,
     this.isSuperuser,
-    this.username,
     this.firstName,
     this.lastName,
     this.email,
@@ -23,7 +22,6 @@ class UserModel {
   String? password;
   DateTime? lastLogin;
   bool? isSuperuser;
-  String? username;
   FirstName? firstName;
   LastName? lastName;
   String? email;
@@ -33,12 +31,11 @@ class UserModel {
   List<dynamic>? groups;
   List<dynamic>? userPermissions;
 
-  factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
+  factory Welcome.fromJson(Map<String, dynamic> json) => Welcome(
     id: json["id"],
     password: json["password"],
     lastLogin: json["last_login"] == null ? null : DateTime.parse(json["last_login"]),
     isSuperuser: json["is_superuser"],
-    username: json["username"],
     firstName: firstNameValues.map![json["first_name"]],
     lastName: lastNameValues.map![json["last_name"]],
     email: json["email"],
@@ -54,7 +51,6 @@ class UserModel {
     "password": password,
     "last_login": lastLogin == null ? null : lastLogin!.toIso8601String(),
     "is_superuser": isSuperuser,
-    "username": username,
     "first_name": firstNameValues.reverse![firstName],
     "last_name": lastNameValues.reverse![lastName],
     "email": email,
@@ -66,7 +62,6 @@ class UserModel {
   };
 }
 
-// ignore: constant_identifier_names
 enum FirstName { EMPTY, ALI }
 
 final firstNameValues = EnumValues({
@@ -86,12 +81,10 @@ class EnumValues<T> {
   Map<String, T>? map;
   Map<T, String>? reverseMap;
 
-   EnumValues(this.map);
+  EnumValues(this.map);
 
   Map<T, String>? get reverse {
-    if (reverseMap == null) {
-      reverseMap = map!.map((k, v) => new MapEntry(v, k));
-    }
+    reverseMap ??= map!.map((k, v) => new MapEntry(v, k));
     return reverseMap;
   }
 }

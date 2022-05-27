@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:icoma/Const/color.dart';
 import 'package:icoma/Core/cache_helper.dart';
@@ -27,7 +28,9 @@ class StartState extends State<SplashScreen> {
   }
 
   startTimer() async {
-    print(widget.token);
+    if (kDebugMode) {
+      print(widget.token);
+    }
     var duration = Duration(seconds: 5);
     return new Timer(duration, route);
   }
@@ -35,9 +38,9 @@ class StartState extends State<SplashScreen> {
   route() {
     // SplashCubit().getData(context);
     if (widget.token != null) {
-      widget.page = HomeScreen();
+      widget.page = const HomeScreen();
     } else {
-      widget.page = SignInView();
+      widget.page = const SignInView();
     }
     Navigator.pushReplacement(
         context, MaterialPageRoute(builder: (context) => widget.page!));
@@ -50,14 +53,14 @@ class StartState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Container(child: Image.asset("assets/images/shopapp.png")),
-            Padding(padding: EdgeInsets.only(top: 20.0)),
+            Image.asset("assets/images/shopapp.png"),
+            const Padding(padding: EdgeInsets.only(top: 20.0)),
             // Text(
             //   " Shop App",
             //   style: TextStyle(fontSize: 20.0, color: Colors.white),
             // ),
-            Padding(padding: EdgeInsets.only(top: 20.0)),
-            CircularProgressIndicator(
+            const Padding(padding: EdgeInsets.only(top: 20.0)),
+            const CircularProgressIndicator(
               backgroundColor: Colors.white,
               strokeWidth: 1,
             )

@@ -1,5 +1,5 @@
-import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:icoma/View/AuthCucle/signIn/Model/user.dart';
@@ -9,7 +9,10 @@ class SignUpCubit extends Cubit<SignUpStates> {
   SignUpCubit() : super(SignUpInitialState());
 
   static SignUpCubit of(context) => BlocProvider.of(context);
-  Welcome? signupModel;
+  UserModel? signupModel;
+
+
+
 
   void userSignUp({
     required String name,
@@ -27,8 +30,10 @@ class SignUpCubit extends Cubit<SignUpStates> {
       'phone': phone,
       },
       );
-      print(response.data);
-      signupModel = Welcome.fromJson(response.data);
+      if (kDebugMode) {
+        print(response.data);
+      }
+      signupModel = UserModel.fromJson(response.data);
       emit(SignUpSuccessState(signupModel!));
     } catch (e, s) {
       print(s);

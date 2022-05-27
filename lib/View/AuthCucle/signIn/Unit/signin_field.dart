@@ -103,9 +103,9 @@ class _SignInFieldState extends State<SignInField> {
                       text: 'log in',
                       function: () async {
                         if (formKey.currentState!.validate()) {
-                          await cubit.userSignIn(
-                              username: usernameController.text,
-                              password: passwordController.text);
+                          await cubit.login(
+                          email: cubit.username,
+                          password: cubit.password);
                           Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(

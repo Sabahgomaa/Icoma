@@ -7,7 +7,7 @@ class SignUpInitialState extends SignUpStates {}
 class SignUpLoadingState extends SignUpStates {}
 
 class SignUpSuccessState extends SignUpStates {
-  final Welcome signUpModel;
+  final UserModel signUpModel;
 
   SignUpSuccessState(this.signUpModel);
 }

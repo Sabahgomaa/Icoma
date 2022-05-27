@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:icoma/View/AuthCucle/signIn/view.dart';
 import 'package:icoma/Widgets/button.dart';
@@ -11,12 +10,14 @@ class LowerSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        CustomeButton(text: 'Sign up', function: () {  },),
+        CustomeButton(text: 'Sign up', function: () {
+
+        },),
         Row(
           crossAxisAlignment:CrossAxisAlignment.center,
           mainAxisAlignment:MainAxisAlignment.center,
           children: [
-          Text('Already have an account?'),
+          const Text('Already have an account?'),
           CustomeTextButton(function: () {  Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => SignInView()),

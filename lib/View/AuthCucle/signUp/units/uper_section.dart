@@ -8,8 +8,16 @@ class UperSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: const [
-        Text('Sign Up',style: TextStyle(color: defultcolor,fontWeight: FontWeight.bold,fontSize:48 ),),
-        Text('Create your New Account',style: TextStyle(color: defultcolor,fontWeight: FontWeight.bold,fontSize:16),)
+        Text(
+          'Sign Up',
+          style: TextStyle(
+              color: defultcolor, fontWeight: FontWeight.bold, fontSize: 48),
+        ),
+        Text(
+          'Create your New Account',
+          style: TextStyle(
+              color: defultcolor, fontWeight: FontWeight.bold, fontSize: 16),
+        )
       ],
     );
   }
