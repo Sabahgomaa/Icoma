@@ -1,26 +1,47 @@
 import 'dart:async';
-
 import 'package:get_storage/get_storage.dart';
-import 'package:icoma/View/AuthCucle/signIn/Model/user.dart';
-
+import 'package:icoma/View/AuthCucle/signIn/Model/login_model.dart';
 
 class CashHelper {
   static final GetStorage _box = GetStorage();
 
   static Future<void> init() async => await GetStorage.init();
 
-  static UserModel? get getUserInfo {
-    UserModel? profileModel;
-    if (_box.hasData('data')) {
-      profileModel = UserModel.fromJson(_box.read('data'));
+  static Future<void> cacheUserInfo({
+    required String token,
+    required LoginModel userModel,
+  }) async {
+    await _cacheUserToken(token);
+    await _cacheUserModel(userModel);
+  }
+
+  static Future<void> cacheUserModel({
+    required LoginModel userModel,
+  }) async {
+    await _cacheUserModel(userModel);
+  }
+
+
+  static Future<void> _cacheUserModel(LoginModel userModel) async =>
+      await _box.write('userModel', userModel.toJson());
+
+
+  static Future<void> _cacheUserToken(String token) async =>
+      await _box.write('token', token);
+
+  static LoginModel? get getUserInfo {
+    LoginModel? userModel;
+    if (_box.hasData('userModel')) {
+      userModel = LoginModel.fromJson(_box.read('userModel'));
     }
-    return profileModel;
+    return userModel;
   }
 
   static Future<void> cashValue(
       {required String key, required bool value}) async {
     return await _box.write(key, value);
   }
+
 
   static Future<dynamic> readValue({
     required String key,
@@ -32,13 +53,12 @@ class CashHelper {
 
   //static bool get rememberMe =>  ;
 
-  static Future<void> cacheUserInfo(UserModel userModel) =>
-      _box.write('data', userModel.toJson());
 
 
-  static String? get getToken => getUserInfo?.;
 
-  static UserModel? get getUserData => getUserInfo?.data;
+  static String? get getToken => getUserInfo?.token;
+
+  //static User? get getUserData => getUserInfo?.user;
 
   // static Future<void> cacheSettingsInfo(SettingsModel settingsModel) =>
   //     _box.write('settings', settingsModel.toJson());

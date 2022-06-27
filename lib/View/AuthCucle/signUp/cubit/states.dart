@@ -1,4 +1,4 @@
-import 'package:icoma/View/AuthCucle/signIn/Model/user.dart';
+import 'package:icoma/View/AuthCucle/Model/user_model.dart';
 
 abstract class SignUpStates {}
 
@@ -19,3 +19,4 @@ class SignUpErrorState extends SignUpStates {
 }
 
 class SignUpChangePasswordVisibilityState extends SignUpStates {}
+class RegisterChangeCheckBoxState extends SignUpStates {}

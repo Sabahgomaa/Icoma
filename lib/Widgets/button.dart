@@ -5,7 +5,8 @@ class CustomeButton extends StatelessWidget {
   final String text;
   final Function() function;
   final bool? isUpperCase;
-  const CustomeButton(
+   // ignore: use_key_in_widget_constructors
+   const CustomeButton(
       {required this.text, required this.function, this.isUpperCase});
 
   @override

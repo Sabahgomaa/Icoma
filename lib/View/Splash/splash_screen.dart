@@ -1,16 +1,18 @@
 import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:icoma/Const/color.dart';
-import 'package:icoma/Core/cache_helper.dart';
+import 'package:icoma/Core/cach_helper.dart';
+
 import 'package:icoma/View/AuthCucle/signIn/view.dart';
-import 'package:icoma/View/home_screen.dart';
+import 'package:icoma/View/MainScreens/Screens/HomePage.dart';
 
 // ignore: must_be_immutable
 class SplashScreen extends StatefulWidget {
   Widget? page;
 
-  String? token = CacheHelper.getData(key: 'token');
+  String? token = CashHelper.getToken;
+
+  SplashScreen({Key? key}) : super(key: key);
   @override
   State<StatefulWidget> createState() => StartState();
 }
@@ -31,14 +33,14 @@ class StartState extends State<SplashScreen> {
     if (kDebugMode) {
       print(widget.token);
     }
-    var duration = Duration(seconds: 5);
-    return new Timer(duration, route);
+    var duration = const Duration(seconds: 5);
+    return  Timer(duration, route);
   }
 
   route() {
     // SplashCubit().getData(context);
     if (widget.token != null) {
-      widget.page = const HomeScreen();
+      widget.page = const Home();
     } else {
       widget.page = const SignInView();
     }

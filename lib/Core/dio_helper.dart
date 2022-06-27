@@ -3,19 +3,21 @@ import 'package:icoma/Core/cach_helper.dart';
 import 'package:url_launcher/url_launcher.dart';
 class DioHelper {
   static  Dio? dio;
-  static const _baseUrl = 'https://guarded-lake-20708.herokuapp.com/api/v1/';
+  static const _baseUrl = 'https://jsonglaucoma.herokuapp.com/';
 
   static bool? isEnglish = false;
-
+//https://jsonglaucoma.herokuapp.com/register/
+  //https://jsonglaucoma.herokuapp.com/login/
   static init() {
     dio = Dio(BaseOptions(
-        baseUrl: 'https://guarded-lake-20708.herokuapp.com/api/v1/',
+        baseUrl: 'https://jsonglaucoma.herokuapp.com/',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded',
           'Accept-Language': isEnglish == true ? 'en' : 'ar',
+        //  'Accept':'*/*',
         },
         // isEn(MagicRouter.currentContext)?'en':
-        receiveDataWhenStatusError: true,
+        receiveDataWhenStatusError: false,
         followRedirects: false,
         validateStatus: (status) {
           return status! < 500;

@@ -1,12 +1,23 @@
+import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:icoma/Core/cache_helper.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:icoma/Core/bloc_observer.dart';
+import 'package:icoma/Core/dio_helper.dart';
 import 'package:icoma/View/Splash/splash_screen.dart';
 
 void main()async  {
   WidgetsFlutterBinding.ensureInitialized();
   // Bloc.observer = MyBlocObserver();
-  await CacheHelper.init();
-  runApp(MyApp());
+  BlocOverrides.runZoned(
+        () {
+      runApp(const MyApp());
+    },
+    blocObserver: MyBlocObserver(),
+  );
+  GetStorage.init();
+  DioHelper.init();
+  // await CashHelper.init();
+  // runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {

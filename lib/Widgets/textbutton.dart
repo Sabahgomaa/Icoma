@@ -12,7 +12,7 @@ class CustomeTextButton extends StatelessWidget {
       onPressed: function,
       child: Text(
         text,
-        style: TextStyle(color: defultcolor),
+        style: const TextStyle(color: defultcolor),
       ),
     );
   }
