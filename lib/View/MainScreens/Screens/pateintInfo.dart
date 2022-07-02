@@ -5,22 +5,21 @@ import 'package:icoma/Core/post_Services.dart';
 import 'package:icoma/View/MainScreens/Copmonent/bottom_nav_bar.dart';
 import 'package:icoma/View/MainScreens/Copmonent/rounded_app_bar.dart';
 
-
-
 class PateintInfo extends StatefulWidget {
-  const PateintInfo({ Key? key }) : super(key: key);
+  const PateintInfo({Key? key}) : super(key: key);
 
   @override
   State<PateintInfo> createState() => _PateintInfoState();
 }
 
 class _PateintInfoState extends State<PateintInfo> {
-  var fullName =TextEditingController();
-  var age =TextEditingController();
-  var nationality =TextEditingController();
-  var geneticHistory =TextEditingController();
-  var phoneNumber =TextEditingController();
-  var testResult=TextEditingController();
+  var fullName = TextEditingController();
+  var age = TextEditingController();
+  var nationality = TextEditingController();
+  var geneticHistory = TextEditingController();
+  var phoneNumber = TextEditingController();
+  var testResult = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +45,6 @@ class _PateintInfoState extends State<PateintInfo> {
                   ),
                 ),
               ),
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
@@ -73,7 +71,7 @@ class _PateintInfoState extends State<PateintInfo> {
                     // optional flex property if flex is 1 because the default flex is 1
                     flex: 1,
                     child: Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 20 ,30, 0),
+                      padding: const EdgeInsets.fromLTRB(0, 20, 30, 0),
                       child: TextField(
                         controller: nationality,
                         decoration: const InputDecoration(
@@ -135,58 +133,73 @@ class _PateintInfoState extends State<PateintInfo> {
                 padding: const EdgeInsets.fromLTRB(40, 10, 40, 0),
                 child: Row(
                   children: [
-                    ElevatedButton.icon(onPressed: (){
-                    },
-                        icon: const Icon(Icons.home,color: Colors.black,),
-
-                        label:const Text('Capture Photo',
-                          style: TextStyle(color: kTextColor),),
-                        style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(Colors.white),
-                            shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(18.0)
-                            )
-                            )
-                        )
+                    ElevatedButton.icon(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.home,
+                        color: Colors.black,
+                      ),
+                      label: const Text(
+                        'Capture Photo',
+                        style: TextStyle(color: kTextColor),
+                      ),
+                      style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(Colors.white),
+                        shape: MaterialStateProperty.all(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(18.0),
+                          ),
+                        ),
+                      ),
                     ),
                     const Spacer(),
-                    ElevatedButton.icon(onPressed:(){ }
-
-                        , icon: const Icon(Icons.camera_alt_outlined), label: const Text('upload Photo',
-                          style: TextStyle(color: kTextColor),),
-
-                        style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(Colors.white),
-                            shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(18.0)
-                            )
-                            )
-                        )
-                    )
+                    ElevatedButton.icon(
+                      onPressed: () {},
+                      icon: const Icon(Icons.camera_alt_outlined),
+                      label: const Text(
+                        'upload Photo',
+                        style: TextStyle(color: kTextColor),
+                      ),
+                      style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(Colors.white),
+                        shape: MaterialStateProperty.all(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(18.0),
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
-              )
-              ,
+              ),
               Center(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(30, 13, 20, 10),
                   child: SizedBox(
                     width: 110,
-                    child: TextButton(onPressed: (){
-                      PostPateint(fullName:fullName.text, age:age.text, nationality:nationality.text, geneticHistory:geneticHistory.text, phoneNumber:phoneNumber.text, testResult:testResult.text).postPateintInfo();
-                    }, child: const Text('Save'),
+                    child: TextButton(
+                      onPressed: () {
+                        PostPateint(
+                                fullName: fullName.text,
+                                age: age.text,
+                                nationality: nationality.text,
+                                geneticHistory: geneticHistory.text,
+                                phoneNumber: phoneNumber.text,
+                                testResult: testResult.text)
+                            .postPateintInfo();
+                      },
+                      child: const Text('Save'),
                       style: TextButton.styleFrom(
                           shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(18.0)
-                          ) ,
-                          primary:kBackgroundColor,
-                          backgroundColor:  kPrimaryColor
-                      ),
+                              borderRadius: BorderRadius.circular(18.0)),
+                          primary: kBackgroundColor,
+                          backgroundColor: kPrimaryColor),
                     ),
                   ),
                 ),
               )
-
             ]),
           ),
           //  ),

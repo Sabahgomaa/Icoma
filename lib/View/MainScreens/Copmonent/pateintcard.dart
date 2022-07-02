@@ -50,13 +50,12 @@ class _PateintCardState extends State<PateintCard> {
                       Padding(
                           padding: const EdgeInsets.all(2),
                           child: Image.asset("assets/images/pateintimage.png")),
-                      Container(
-                          child: Text(widget.pateintName,
-                              style: const TextStyle(
-                                  color: kTextColor,
-                                  fontSize: 16,
-                                  fontStyle: FontStyle.italic,
-                                  fontWeight: FontWeight.bold))),
+                      Text(widget.pateintName,
+                          style: const TextStyle(
+                              color: kTextColor,
+                              fontSize: 16,
+                              fontStyle: FontStyle.italic,
+                              fontWeight: FontWeight.bold)),
                       Center(
                         child: Text(widget.pateintAge.toString() + " age",
                             style: const TextStyle(

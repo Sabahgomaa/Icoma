@@ -6,8 +6,14 @@ import 'package:icoma/View/MainScreens/Copmonent/rounded_app_bar.dart';
 class Home extends StatefulWidget {
   const Home({ Key? key }) : super(key: key);
 
+  // @override
+  // State<Home> createState() => _HomeState();
   @override
-  State<Home> createState() => _HomeState();
+  // ignore: no_logic_in_create_state
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    throw UnimplementedError();
+  }
 }
 
 class _HomeState extends State<Home> {

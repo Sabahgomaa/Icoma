@@ -8,9 +8,8 @@ import 'package:icoma/View/MainScreens/Copmonent/pateintcard.dart';
 import 'package:icoma/View/MainScreens/Copmonent/rounded_app_bar.dart';
 import 'package:icoma/View/MainScreens/Screens/pateintInfo.dart';
 
-
 class AddPateint extends StatefulWidget {
-  const AddPateint({ Key? key }) : super(key: key);
+  const AddPateint({Key? key}) : super(key: key);
 
   @override
   State<AddPateint> createState() => _AddPateintState();
@@ -31,55 +30,55 @@ class _AddPateintState extends State<AddPateint> {
     super.initState();
     getUserList();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:kBackgroundColor ,
-      appBar: RoundAppBar(),
-      body:Stack(
+      backgroundColor: kBackgroundColor,
+      appBar: const RoundAppBar(),
+      body: Stack(
         children: [
           Scaffold(
-            body:
-            loading
+            body: loading
                 ? const Center(child: CircularProgressIndicator())
                 : GridView.builder(
-              padding: const EdgeInsets.fromLTRB(40, 50, 40, 20),
-              itemCount: users.length,
-              itemBuilder: (BuildContext context, int index) {
-                return Padding(
-                  padding: const EdgeInsets.all(0),
-                  child:PateintCard(pateintName:" ${users[index].name}",pateintAge:users[index].age ,),
-                );
-              }, gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              childAspectRatio: 1,
-            ),
-            ),
-          ),
-          Column(
-              children:[
-                Spacer(),
-                Row(
-                    children :[
-                      Spacer(),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 0,30, 105),
-                        child: FloatingActionButton(
-                          onPressed: (){
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => const PateintInfo( )),
-                            );
-                          },
-
-                          child: SvgPicture.asset("assets/icons/addicon.svg"),
-
+                    padding: const EdgeInsets.fromLTRB(40, 50, 40, 20),
+                    itemCount: users.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Padding(
+                        padding: const EdgeInsets.all(0),
+                        child: PateintCard(
+                          pateintName: " ${users[index].name}",
+                          pateintAge: users[index].age,
                         ),
-                      ),
-                    ]
-                ),]),
-
-
+                      );
+                    },
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      childAspectRatio: 1,
+                    ),
+                  ),
+          ),
+          Column(children: [
+            const Spacer(),
+            Row(children: [
+              const Spacer(),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 0, 30, 105),
+                child: FloatingActionButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const PateintInfo()),
+                    );
+                  },
+                  child: SvgPicture.asset("assets/icons/addicon.svg"),
+                ),
+              ),
+            ]),
+          ]),
           const MyBottomNavBar()
         ],
       ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:icoma/Const/color.dart';
+import 'package:icoma/View/MainScreens/Copmonent/my_darwer.dart';
 import 'package:icoma/View/MainScreens/Screens/HomePage.dart';
 import 'package:icoma/View/MainScreens/Screens/addpateint.dart';
 
@@ -58,7 +59,11 @@ class _MyBottomNavBarState extends State<MyBottomNavBar> {
               icon:  SvgPicture.asset("assets/icons/notficationicon.svg"),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const MyDrawer(),),);
+              },
               icon:  SvgPicture.asset("assets/icons/drawericon.svg"),
             ),
           ],
